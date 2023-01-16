@@ -1,0 +1,43 @@
+<div class="appContainer">
+  <div class="form-group appCard mt-5">
+    <form class="p-3" method="POST" #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
+      <div class="form-group">
+        <label for="title">Title: </label>
+        <input [(ngModel)]="editPost.title" name="title" type="text" class="form-control" id="title"
+          placeholder="Title of Post" />
+      </div>
+      <div class="form-group">
+        <label for="author">Publisher: </label>
+        <input [(ngModel)]="editPost.publisher" name="publisher" type="text" class="form-control" id="author"
+          placeholder="Your Name Here" disabled=""/>
+      </div>
+      <div class="form-group">
+        <label for="content">Content: </label>
+        <textarea [(ngModel)]="editPost.content" name="content" id="content" rows="3" class="form-control"></textarea>
+      </div>
+      <div class="pt-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Post</h4>
+      </div>
+      <div class="modal-body">
+        <!--<p>User account Successfully created.</p>-->
+        <p>{{popUpMessage}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
